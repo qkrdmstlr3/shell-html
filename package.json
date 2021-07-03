@@ -1,0 +1,30 @@
+{
+  "name": "shell-html",
+  "version": "1.0.0",
+  "description": "simple library for component-based front-end development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "shell-html",
+    "custom element",
+    "shadow DOM",
+    "html template",
+    "component"
+  ],
+  "author": {
+    "name": "shellboy",
+    "email": "qkrdmstlr3@naver.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/qkrdmstlr3/shell-html",
+  "bugs": {
+    "url": "https://github.com/qkrdmstlr3/shell-html/issues",
+    "email": "qkrdmstlr3@naver.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qkrdmstlr3/shell-html.git"
+  }
+}
