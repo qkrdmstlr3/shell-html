@@ -4,7 +4,7 @@
  * To manage global state
  * Used for state management between components
  */
-import { AtomType } from './type';
+import { AtomType } from "./type";
 
 interface KeyValueType {
   [key: string]: any;
@@ -45,8 +45,8 @@ class Store {
 
 const store = new Store();
 
-export function state(pearlData: AtomType): void {
-  store.addState(pearlData);
+export function state(stateData: AtomType): void {
+  store.addState(stateData);
 }
 
 export function useGlobalState(key: string): any {
