@@ -1,0 +1,1 @@
+{"version":3,"file":"manage.js","sourceRoot":"","sources":["../lib/shell-html/manage.ts"],"names":[],"mappings":";;;AAAA,SAAgB,MAAM,CAAC,WAAmB,EAAE,GAAuB;IACjE,IAAI,GAAG,EAAE;QACP,GAAG,CAAC,SAAS,GAAG,IAAI,WAAW,IAAI,CAAC;KACrC;AACH,CAAC;AAJD,wBAIC;AAED,SAAgB,eAAe,CAC7B,IAAY,EACZ,SAAmC;IAEnC,cAAc,CAAC,MAAM,CAAC,IAAI,EAAE,SAAS,CAAC,CAAC;AACzC,CAAC;AALD,0CAKC"}
