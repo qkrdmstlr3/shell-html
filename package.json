@@ -2,9 +2,11 @@
   "name": "shell-html",
   "version": "1.0.0",
   "description": "simple library for component-based front-end development",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "shell-html",
@@ -28,18 +30,6 @@
     "url": "https://github.com/qkrdmstlr3/shell-html.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@babel/plugin-transform-runtime": "^7.14.5",
-    "@babel/preset-env": "^7.14.7",
-    "@babel/preset-typescript": "^7.14.5",
-    "@types/terser-webpack-plugin": "^5.0.4",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.2.2",
-    "terser-webpack-plugin": "^5.1.4",
-    "ts-loader": "^9.2.3",
-    "typescript": "^4.3.5",
-    "webpack": "^5.42.0",
-    "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2"
+    "typescript": "^4.3.5"
   }
 }
