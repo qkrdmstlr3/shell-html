@@ -13,8 +13,27 @@ interface TodoItem {
 }
 
 class TodoList extends ShellHTML {
+  connectedCallback() {
+    this.enrollObserving("todolist");
+  }
+
+  disconnectedCallback() {
+    this.releaseObserving("todolist");
+  }
+
   movePageToHomeHandler() {
     setGlobalState("page", "home");
+  }
+
+  removeTodoItemHandler(event: Event) {
+    if (!(event.target instanceof HTMLElement)) return;
+
+    const id = event.target.id;
+    if (!id) return;
+
+    const list: TodoItem[] = useGlobalState("todolist");
+    const newTodoList = list.filter((item) => item.id !== Number(id));
+    setGlobalState("todolist", newTodoList);
   }
 
   getTodoListHTML() {
@@ -24,7 +43,7 @@ class TodoList extends ShellHTML {
         (acc += `
         <li class="todolist__item">
           <p>${item.id}. ${item.content}</p>
-          <button id="${item.id}">delete</button>
+          <button id="${item.id}" class="todolist__item-button">delete</button>
         </li>
         `),
       ""
@@ -45,6 +64,11 @@ class TodoList extends ShellHTML {
         {
           className: "todolist__link",
           func: this.movePageToHomeHandler,
+          type: EventType.click,
+        },
+        {
+          className: "todolist__item-button",
+          func: this.removeTodoItemHandler,
           type: EventType.click,
         },
       ],
