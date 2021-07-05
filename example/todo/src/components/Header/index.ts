@@ -5,9 +5,9 @@ class Header extends ShellHTML {
   render() {
     return {
       html: `
-      <div class="header">
-        header
-      </div>`,
+      <header class="header">
+        <h1 class="header__title">Todo List</h1>
+      </header>`,
       css: StyleSheet,
     };
   }
