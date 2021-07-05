@@ -1,7 +1,6 @@
 // webpack.config.js
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "production",
@@ -18,8 +17,18 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin, "css-loader"],
+        test: /\.scss$/,
+        use: [
+          "raw-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                includePaths: [path.resolve(__dirname, "node_modules")],
+              },
+            },
+          },
+        ],
       },
     ],
   },
