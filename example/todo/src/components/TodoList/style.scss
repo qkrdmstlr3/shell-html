@@ -1,0 +1,21 @@
+.todolist {
+  &__link {
+    display: block;
+
+    color: #555;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+  }
+}
