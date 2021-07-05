@@ -1,0 +1,45 @@
+.banner {
+  margin-top: 200px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__todobox {
+    display: flex;
+
+    &__input {
+      width: 400px;
+      height: 30px;
+      padding-left: 10px;
+
+      border: 1px solid black;
+      border-radius: 50px;
+      outline: none;
+    }
+
+    &__button {
+      width: 100px;
+      height: 34px;
+      background-color: transparent;
+      border: 1px solid #444;
+      border-radius: 50px;
+
+      &:hover {
+        border: 1px solid black;
+      }
+      &:active {
+        color: white;
+        background-color: #222;
+      }
+    }
+  }
+
+  &__link {
+    margin-top: 30px;
+    color: #555;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
