@@ -1,4 +1,4 @@
-import { RenderType, EventFuncType } from './type';
+import { RenderType, EventFuncType } from "./type";
 declare class ShellHTML extends HTMLElement {
     state: any;
     events: EventFuncType[] | undefined;
@@ -17,7 +17,8 @@ declare class ShellHTML extends HTMLElement {
      * state
      */
     setState(state: unknown): void;
-    getElement(id: string): HTMLElement | null;
+    getElementById(id: string): HTMLElement | null;
+    querySelector(tag: string): HTMLElement | null;
     enrollObserving(key: string): void;
     releaseObserving(key: string): void;
     /**

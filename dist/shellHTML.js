@@ -5,7 +5,7 @@ class ShellHTML extends HTMLElement {
     constructor(state = null) {
         super();
         this.state = state; // TODO: immutability must be guaranteed
-        this.attachShadow({ mode: 'open' });
+        this.attachShadow({ mode: "open" });
         const element = this.render();
         if (element && this.shadowRoot) {
             this.renderFirst(element, this.shadowRoot);
@@ -27,7 +27,7 @@ class ShellHTML extends HTMLElement {
             return;
         for (let i = 0; i < newDOMChilds.length; i += 1) {
             const newDOMChild = newDOMChilds[i];
-            if (newDOMChild.nodeName.includes('-')) {
+            if (newDOMChild.nodeName.includes("-")) {
                 const oldDOMElement = oldDOM.getElementById(newDOMChild.id);
                 if (oldDOMElement) {
                     newDOMChild.replaceWith(oldDOMElement);
@@ -45,9 +45,15 @@ class ShellHTML extends HTMLElement {
             this.rerender();
         }
     }
-    getElement(id) {
+    getElementById(id) {
         if (this.shadowRoot) {
             return this.shadowRoot.getElementById(id);
+        }
+        return null;
+    }
+    querySelector(tag) {
+        if (this.shadowRoot) {
+            return this.shadowRoot.querySelector(tag);
         }
         return null;
     }
@@ -63,9 +69,9 @@ class ShellHTML extends HTMLElement {
     render() {
         // overriding
     }
-    renderFirst({ html = '', eventFuncs = [], css }, dom) {
+    renderFirst({ html = "", eventFuncs = [], css }, dom) {
         // FIXME: applying sanitize html
-        dom.innerHTML = html.trim().replace(/>[ |\n]*</g, '><');
+        dom.innerHTML = html.trim().replace(/>[ |\n]*</g, "><");
         if (css) {
             this.renderCSS(css, dom);
         }
@@ -74,7 +80,7 @@ class ShellHTML extends HTMLElement {
         eventFuncs.forEach((eventFunc) => this.eventDelegation(eventFunc, dom));
     }
     renderCSS(css, dom) {
-        const style = document.createElement('style');
+        const style = document.createElement("style");
         style.appendChild(document.createTextNode(css));
         dom.appendChild(style);
     }
@@ -103,8 +109,8 @@ class ShellHTML extends HTMLElement {
         const element = this.render();
         if (element && element.html) {
             const oldDOM = this.shadowRoot;
-            const newDOM = document.createElement('div');
-            newDOM.innerHTML = element.html.trim().replace(/>[ |\n]*</g, '><');
+            const newDOM = document.createElement("div");
+            newDOM.innerHTML = element.html.trim().replace(/>[ |\n]*</g, "><");
             if (!oldDOM || oldDOM.textContent == newDOM.textContent)
                 return;
             this.compareAndReplaceNodeTree(oldDOM, newDOM, newDOM.childNodes);
