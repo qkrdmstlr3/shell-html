@@ -1,5 +1,5 @@
 /**
- * Global State
+ * init Global State
  */
 import { state } from "./lib/shell-html";
 

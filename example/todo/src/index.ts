@@ -1,3 +1,8 @@
+/**
+ * entry file
+ * call global state and components
+ * render layout component to root tag
+ */
 // Dependencies
 import { render } from "./lib/shell-html";
 import "./state";

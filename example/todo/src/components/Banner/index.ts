@@ -20,9 +20,12 @@ class Banner extends ShellHTML {
   createNewTodoItemHandler(event: Event) {
     event.preventDefault();
 
+    /** you can use globalstate using useGlobalState */
     const list: TodoItem[] = useGlobalState("todolist");
+    /** you can use this.querySelector if you want to tag in component,  */
     const input = this.querySelector("input") as HTMLInputElement;
 
+    /** you can change globalstate using setGlobalstate. In that time, all components enrolled globalstate occur rerendering */
     setGlobalState("todolist", [
       ...list,
       {

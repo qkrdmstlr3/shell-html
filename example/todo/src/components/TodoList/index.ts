@@ -14,14 +14,17 @@ interface TodoItem {
 
 class TodoList extends ShellHTML {
   connectedCallback() {
+    /** you have to enroll globalstate to rerendering if globalstate changed */
     this.enrollObserving("todolist");
   }
 
   disconnectedCallback() {
+    /** you have to release globalstate to rerendering for garbase collector */
     this.releaseObserving("todolist");
   }
 
   movePageToHomeHandler() {
+    /** you can change globalstate using setGlobalstate. In that time, all components enrolled globalstate occur rerendering */
     setGlobalState("page", "home");
   }
 
@@ -31,6 +34,7 @@ class TodoList extends ShellHTML {
     const id = event.target.id;
     if (!id) return;
 
+    /** you can use globalstate using useGlobalState */
     const list: TodoItem[] = useGlobalState("todolist");
     const newTodoList = list.filter((item) => item.id !== Number(id));
     setGlobalState("todolist", newTodoList);
