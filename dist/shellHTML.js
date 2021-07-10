@@ -68,6 +68,7 @@ class ShellHTML extends HTMLElement {
      */
     render() {
         // overriding
+        return {};
     }
     renderFirst({ html = "", eventFuncs = [], css }, dom) {
         // FIXME: applying sanitize html

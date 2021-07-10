@@ -1,7 +1,11 @@
 import { RenderType, EventFuncType } from "./type";
 import { observe, disObserve } from "./state";
 
-class ShellHTML extends HTMLElement {
+interface ShellHTMLType {
+  render(): RenderType;
+}
+
+class ShellHTML extends HTMLElement implements ShellHTMLType {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   state: any;
   events: EventFuncType[] | undefined;
@@ -87,8 +91,9 @@ class ShellHTML extends HTMLElement {
   /**
    * Rendering
    */
-  render(): RenderType | void {
+  render(): RenderType {
     // overriding
+    return {};
   }
 
   renderFirst(

@@ -1,7 +1,6 @@
 # shell-html
 
-<!-- ![version](https://img.shields.io/npm/v/arc-pie-chart) -->
-
+![version](https://img.shields.io/npm/v/shell-html)
 ![dependencies](https://img.shields.io/badge/dependencies-none-success)
 ![typescript](https://img.shields.io/badge/typescript-4.3.5-blue?logo=typescript)
 
@@ -9,13 +8,15 @@
 
 shell-html is a simple library implemented with about 300 lines using vanillaTS. It enables component-based development using web-component and shadowDOM. You can styling using with **SCSS**
 
-**providing an [example project](https://github.com/qkrdmstlr3/shell-html/tree/main/example/todo) to show you how it works.**
-
 ### Install
 
 ```
 npm install shell-html
 ```
+
+## Examples
+
+providing an **[example project](https://github.com/qkrdmstlr3/shell-html/tree/main/example/todo)** to show you how it works.
 
 ## Docs
 
@@ -165,6 +166,28 @@ class FirstComponent extends ShellHTML {
 
   disconnectedCallback() {
     // executed when component remove from DOM
+  }
+
+  render() {
+    return {
+      ...
+    };
+  }
+}
+
+createComponent("first-component", FirstComponent);
+```
+
+shell-html also provide getElementsById and querySelector like below code:
+
+```typescript
+import { ShellHTML, createComponent, EventType } from "shell-html";
+import styleSheet from "./style.scss";
+
+class FirstComponent extends ShellHTML {
+  clickHandler() {
+    const element1 = this.getElementById("id")
+    const element2 = this.querySelector("tag")
   }
 
   render() {

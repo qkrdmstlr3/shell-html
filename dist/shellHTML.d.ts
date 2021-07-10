@@ -1,5 +1,8 @@
 import { RenderType, EventFuncType } from "./type";
-declare class ShellHTML extends HTMLElement {
+interface ShellHTMLType {
+    render(): RenderType;
+}
+declare class ShellHTML extends HTMLElement implements ShellHTMLType {
     state: any;
     events: EventFuncType[] | undefined;
     constructor(state?: unknown);
@@ -24,7 +27,7 @@ declare class ShellHTML extends HTMLElement {
     /**
      * Rendering
      */
-    render(): RenderType | void;
+    render(): RenderType;
     renderFirst({ html, eventFuncs, css }: RenderType, dom: ShadowRoot): void;
     renderCSS(css: string, dom: ShadowRoot): void;
     getEventListner(event: Event, { className, func }: EventFuncType): void;
